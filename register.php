@@ -1,7 +1,7 @@
  <?php require_once('layouts/header.php') ?>
  <!-- Register Section Begin -->
  <?php 
-    require_once('functions.php');
+    require_once('cek-register.php');
     if(isset($_POST["register"]))
     {
         if(register($_POST) > 0 )

@@ -10,15 +10,20 @@
     $password = $_POST['password'];
 
     //menyeleksi data admin yang sesuai
-    $data = mysqli_query($koneksi, "select * from users where username='$username' and password='$password'");
+    $data = mysqli_query($koneksi, "select username from user_pelanggan where username = '$username'");
     //menghitung jumlah rows
-    $cek = mysqli_num_rows($data);
+    $result = mysqli_num_rows($data);
 
-    if($cek > 0)
+    if($result > 0)
     {
-        $_SESSION['username'] = $username;
-        $_SESSION['status']   = "Login";
-        header("Location:index.php");
+        // cek password
+        $row = mysqli_fetch_assoc($result, MYSQLI_ASSOC);
+        if( password_verify($password, $row["password"]))
+        {
+            header("Location:index.php");
+            exit;
+        } 
+        
     }
     else
     {

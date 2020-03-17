@@ -1,5 +1,5 @@
 <?php 
-$koneksi = mysqli_connect('localhost', 'root', '', 'db_fashi');
+include 'koneksi.php';
 
 function register($data)
 {
