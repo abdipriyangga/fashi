@@ -1,0 +1,15 @@
+#Menambahkan fitur register user pelanggan
+    #tambahan file
+        - cek-register.php
+        - register.php
+        - tambahan tabel baru pada database dengan nama : user_pelanggan 
+            yang dimana tabel tsb mempunyai 4 kolom : id, email, username, dan password
+
+#Menambahkan template untuk admin
+    #tambahan folder admin
+        - cek-login-admin.php
+        - homepage.php
+        - login-admin.php
+        - logout-admin.php
+    #yang dimana admin menggunakan tabel users yang ada pada database.
+    #template admin di letakkan pada folder assets

@@ -1,9 +1,16 @@
 <?php 
 include 'koneksi.php';
 
+// Fungsi untuk register
 function register($data)
 {
-    global $koneksi;
+    global $koneksi; // untuk membuat var $koneksi bisa digunakan secara global
+
+    // untuk menangkap data inputan dari user yang ada pada form register
+    // strtoLower berfungsi untuk membuat inputan menjadi huruf kecil semua
+    // stripslashes berfungsi untuk membersihkan jikalau ada user iseng yang ingin memasukkan karakter-karakter
+    //  seperti /, \, dll.
+    // mysqli_real_escape_string berfungsi untuk mencegah dari serangan SQL Injection
     $email = strtoLower(stripslashes($data["email"]));
     $username = strtoLower(stripslashes($data["username"]));
     $password = mysqli_real_escape_string($koneksi, $data["password"]);
@@ -15,10 +22,10 @@ function register($data)
     {
         echo "<script>
                 alert('USername yang anda masukkan sudah ada');
-              </script>";
+            </script>";
         return false;
     }
-    // konfirmasi password
+    // konfirmasi / pengecekan password
     if( $password !== $password2)
     {
         echo "<script>
