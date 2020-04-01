@@ -59,8 +59,8 @@ $query = mysqli_query($koneksi, "SELECT * FROM items");
                     <td><?= $row["kuantitas"] ?></td>
                     <td><img src="../assets/img/items/<?= $row["gambar"] ?>" alt="Gambar" width="80"></td>
                     <td> 
-                        <a href="" class="btn btn-danger">Edit</a>
-                        <a href="" class="btn btn-success">Hapus</a>
+                        <a href="edit-data.php?id_barang=<?= $row["id_barang"] ?>" class="btn btn-danger">Edit</a>
+                        <a href="hapus-data.php?id_barang=<?= $row["id_barang"] ?>" onclick="return confirm('Yakin mau di hapus?');" class="btn btn-success">Hapus</a>
                     </td>
                     </tr>
                     <?php endforeach; ?>    
